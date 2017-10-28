@@ -1,0 +1,49 @@
+{
+  "name": "mocha-annotated",
+  "version": "0.0.1",
+  "description": "Mocha but with tasks and feedback built into it!",
+  "main": "index.js",
+  "contributors": [
+    "Nick Wronski <nwronski+github@gmail.com> (https://github.com/nwronski)"
+  ],
+  "bugs": {
+    "url": "https://github.com/nwronski/mocha-annotated/issues"
+  },
+  "homepage": "https://github.com/nwronski/mocha-annotated/blob/master/README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix --ext .js 'src/**/*.js'",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e",
+    "prerelease": "git checkout master; git pull origin master",
+    "release": "standard-version --commit-all",
+    "postrelease": "conventional-github-releaser -p angular"
+  },
+  "standard-version": {
+    "scripts": {
+      "posttag": "git push --follow-tags origin master"
+    }
+  },
+  "keywords": [
+    "mocha",
+    "bdd",
+    "annotated"
+  ],
+  "author": "Nick Wronski <nwronski@gmail.com> (https://github.com/nwronski)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@types/mocha": "^2.2.44",
+    "mocha": "^4.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^4.2.2",
+    "@commitlint/config-angular": "^4.2.1",
+    "conventional-github-releaser": "^1.1.12",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.3.0",
+    "standard-version": "^4.2.0"
+  }
+}
