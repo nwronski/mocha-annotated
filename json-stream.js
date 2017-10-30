@@ -1,23 +1,5 @@
 const Base = require('mocha/lib/reporters/base');
-
-/**
- * Return a plain-object representation of `test`
- * free of cyclic properties etc.
- *
- * @api private
- * @param {AnnotatedTest|Test} test
- * @return {Object}
- */
-function clean(test) {
-  return {
-    title: test.title,
-    task: test.task,
-    feedback: test.feedback,
-    fullTitle: test.fullTitle(),
-    duration: test.duration,
-    currentRetry: test.currentRetry(),
-  };
-}
+const { clean } = require('./helpers');
 
 /**
  * Initialize a new `AnnotatedList` test reporter.
@@ -39,11 +21,10 @@ function AnnotatedList(runner) {
   });
 
   runner.on('fail', (test, err) => {
-    const result = {
-      ...clean(test),
-      err: err.message,
-      stack: err.stack !== undefined ? err.stack : null,
-    };
+    // eslint-disable-next-line no-param-reassign
+    test.err = test.err !== undefined ? test.err : err;
+
+    const result = clean(test);
     console.log(JSON.stringify([ 'fail', result ]));
   });
 

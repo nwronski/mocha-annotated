@@ -32,6 +32,12 @@ The Mocha ui is `mocha-annotated/ui` and you can add it to your `mocha` options 
 --reporter mocha-annotated/spec
 ```
 
+**Annotated json reporter**
+
+```
+--reporter mocha-annotated/json
+```
+
 **Annotated json-stream reporter**
 
 ```
@@ -91,20 +97,55 @@ At the end of your test output, you will see the feedback for any failing test(s
       ```
 ```
 
+**Using the `mocha-annotated/json` reporter**
+
+```json
+{
+  "stats": {},
+  "failures": [
+    {
+      "title": "put a boop in the beep",
+      "fullTitle": "Beep#add put a boop in the beep",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [] to include 'boop'",
+        "stack":"AssertionError: expected [] to include 'boop'\n"
+      }
+    }
+  ],
+  "tests": [
+    {
+      "title": "put a boop in the beep",
+      "fullTitle": "Beep#add put a boop in the beep",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [] to include 'boop'",
+        "stack":"AssertionError: expected [] to include 'boop'\n"
+      }
+    }
+  ],
+  "passes": []
+}
+```
+
 **Using the `mocha-annotated/json-stream` reporter**
 
-```shell
+```json
 [  
    "fail",
    {  
-      "title":"put a boop in the beep",
-      "task":1,
-      "feedback":"Whoops, we forgot to put a boop in our beep when `fiddlesticks` is _truthy_.\n\n```typescript\nif (fiddlesticks) {\n\tbeep.add('boop');\n}\n```",
-      "fullTitle":"Beep#add put a boop in the beep",
-      "duration":1,
-      "currentRetry":0,
-      "err":"expected [] to include 'boop'",
-      "stack":"AssertionError: expected [] to include 'boop'\n"
+      "title": "put a boop in the beep",
+      "task": 1,
+      "feedback": "Whoops, we forgot to put a boop in our beep when `fiddlesticks` is _truthy_.\n\n```typescript\nif (fiddlesticks) {\n\tbeep.add('boop');\n}\n```",
+      "fullTitle": "Beep#add put a boop in the beep",
+      "duration": 1,
+      "currentRetry": 0,
+      "err": {
+        "message": "expected [] to include 'boop'",
+        "stack":"AssertionError: expected [] to include 'boop'\n"
+      }
    }
 ]
 ```

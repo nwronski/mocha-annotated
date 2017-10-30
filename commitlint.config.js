@@ -14,6 +14,7 @@ module.exports = {
         // Feature scopes
         'ui',
         'spec',
+        'json',
         'json-stream',
       ],
     ],
