@@ -10,7 +10,7 @@ npm install nwronski/mocha-annotated
 ## Use
 
 ```
-mocha --reporter mocha-annotated/spec --require mocha-annotated/ui --bail --ui mocha-annotated 'src/**/^.spec.js'
+mocha --reporter mocha-annotated/spec --require mocha-annotated/ui --bail --ui mocha-annotated 'src/**/*.spec.js'
 ```
 
 _Note: Use the `--bail` flag so that you see at most one feedback message per test run._
