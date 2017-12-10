@@ -72,7 +72,7 @@ Mocha.AnnotatedTest = AnnotatedTest;
  *
  * @param {Suite} suite Root suite.
  */
-Mocha.interfaces['mocha-annotated'] = function campusBDD(suite) {
+Mocha.interfaces['mocha-annotated'] = function annotatedBDD(suite) {
   const suites = [ suite ];
 
   suite.on('pre-require', (context, file, mocha) => {
@@ -190,6 +190,6 @@ Mocha.interfaces['mocha-annotated'] = function campusBDD(suite) {
   });
 };
 
-module.exports = Mocha.interfaces.campus;
+module.exports = Mocha.interfaces['mocha-annotated'];
 
 /* eslint-enable no-param-reassign, no-multi-assign */
