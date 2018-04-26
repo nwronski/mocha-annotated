@@ -18,8 +18,8 @@
     "prerelease": "git checkout master; git pull origin master",
     "release": "standard-version --commit-all",
     "postrelease": "conventional-github-releaser -p angular",
-    "compile": "babel -d dist/ src/",
-    "prepublish": "npm run compile"
+    "build": "babel -d dist/ src/",
+    "prepublish": "npm run build"
   },
   "standard-version": {
     "scripts": {
@@ -44,8 +44,7 @@
     "babel-preset-env": "^1.6.1",
     "conventional-github-releaser": "^1.1.12",
     "eslint": "^4.10.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-config-nwronski-rules": "^1.0.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.3.0",
     "standard-version": "^4.2.0"
