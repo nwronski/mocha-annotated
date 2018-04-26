@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    '@commitlint/config-angular',
+    '@commitlint/config-conventional',
   ],
   rules: {
     'scope-enum': [
