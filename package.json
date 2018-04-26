@@ -2,7 +2,7 @@
   "name": "mocha-annotated",
   "version": "0.2.1",
   "description": "Mocha but with tasks and feedback built into it!",
-  "main": "index.js",
+  "main": "dist/index.js",
   "contributors": [
     "Nick Wronski <nwronski+github@gmail.com> (https://github.com/nwronski)"
   ],
