@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/nwronski/mocha-annotated/compare/v0.2.1...v0.3.0) (2018-04-26)
+
+
+### Features
+
+* add babel and target es5 ([#2](https://github.com/nwronski/mocha-annotated/issues/2)) ([0f0206a](https://github.com/nwronski/mocha-annotated/commit/0f0206a))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/nwronski/mocha-annotated/compare/v0.2.0...v0.2.1) (2017-12-13)
 
