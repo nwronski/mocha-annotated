@@ -2,7 +2,7 @@
   "name": "mocha-annotated",
   "version": "0.2.1",
   "description": "Mocha but with tasks and feedback built into it!",
-  "main": "index.js",
+  "main": "dist/index.js",
   "contributors": [
     "Nick Wronski <nwronski+github@gmail.com> (https://github.com/nwronski)"
   ],
@@ -17,7 +17,9 @@
     "commitmsg": "commitlint -e",
     "prerelease": "git checkout master; git pull origin master",
     "release": "standard-version --commit-all",
-    "postrelease": "conventional-github-releaser -p angular"
+    "postrelease": "conventional-github-releaser -p angular",
+    "compile": "babel -d dist/ src/",
+    "prepublish": "npm run compile"
   },
   "standard-version": {
     "scripts": {
@@ -33,11 +35,13 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@types/mocha": "^2.2.44",
-    "mocha": "^4.0.1"
+    "mocha": ">=3.0.0 <5.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^4.2.2",
     "@commitlint/config-angular": "^4.2.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "conventional-github-releaser": "^1.1.12",
     "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "^12.1.0",

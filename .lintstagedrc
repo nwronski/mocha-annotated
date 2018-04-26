@@ -4,5 +4,6 @@
       "lint",
       "git add"
     ]
-  }
+  },
+  "ignore": ["dist/*.js"]
 }
