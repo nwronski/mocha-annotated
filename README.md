@@ -4,13 +4,13 @@ Mocha but with tasks and feedback built into it!
 ## Install
 
 ```
-npm install nwronski/mocha-annotated
+npm install mocha-annotated
 ```
 
 ## Use
 
 ```
-mocha --reporter mocha-annotated/spec --require mocha-annotated/ui --bail --ui mocha-annotated 'src/**/*.spec.js'
+mocha --reporter mocha-annotated/spec --ui mocha-annotated/ui 'src/**/*.spec.js'
 ```
 
 _Note: Use the `--bail` flag so that you see at most one feedback message per test run._
@@ -20,8 +20,7 @@ _Note: Use the `--bail` flag so that you see at most one feedback message per te
 The Mocha ui is `mocha-annotated/ui` and you can add it to your `mocha` options using:
 
 ```
---require mocha-annotated/ui 
---ui mocha-annotated
+--ui mocha-annotated/ui
 ```
 
 ### Reporters
