@@ -7,9 +7,9 @@ const { inherits } = require('mocha/lib/utils');
 function AnnotatedTest(title, task, feedback, fn) {
   if (typeof task !== 'number') {
     // new AnnotatedTest(title, feedback, fn)
-    task = 1;
     fn = feedback;
     feedback = task;
+    task = 1;
   }
   Mocha.Test.call(this, title, fn);
   this.pending = !fn;
