@@ -33,8 +33,11 @@ function clean(test) {
     duration: test.duration,
     currentRetry: test.currentRetry(),
   };
-  if (typeof test.err !== 'undefined') {
+  if (test.err != null) {
     result.err = errorJSON(test.err);
+    if (result.feedback == null) {
+      result.feedback = result.err.message;
+    }
   }
   return result;
 }
