@@ -5,12 +5,6 @@ const { inherits } = require('mocha/lib/utils');
 /* eslint-disable no-param-reassign, no-multi-assign */
 
 function AnnotatedTest(title, task, feedback, fn) {
-  if (typeof task !== 'number') {
-    // new AnnotatedTest(title, feedback, fn)
-    task = 1;
-    fn = feedback;
-    feedback = task;
-  }
   Mocha.Test.call(this, title, fn);
   this.pending = !fn;
   this.type = 'test';
@@ -129,7 +123,26 @@ Mocha.interfaces['mocha-annotated'] = function annotatedBDD(suite) {
       return test;
     };
 
-    context.it.annotated = (title, task, feedback, fn) => {
+    /**
+     * it.annotated(title, task, feedback, fn)
+     * it.annotated(title, feedback, fn)
+     * it.annotated(title, task, fn)
+     * it.annotated(title, fn)
+     */
+    context.it.annotated = (title, ...args) => {
+      let task = 1;
+      let feedback;
+      let fn = args.pop();
+
+      while (args.length > 0) {
+        const arg = args.pop();
+        if (typeof arg !== 'number') {
+          feedback = arg;
+        } else {
+          task = arg;
+        }
+      }
+
       const current = suites[0];
       if (current.isPending()) {
         fn = null;
@@ -146,8 +159,8 @@ Mocha.interfaces['mocha-annotated'] = function annotatedBDD(suite) {
      */
     context.it.only = (title, fn) => common.test.only(mocha, context.it(title, fn));
 
-    context.it.annotated.only = (title, task, feedback, fn) => {
-      const test = context.it.annotated(title, task, feedback, fn);
+    context.it.annotated.only = (...args) => {
+      const test = context.it.annotated(...args);
       return common.test.only(mocha, test);
     };
 
