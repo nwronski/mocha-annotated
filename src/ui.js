@@ -10,6 +10,7 @@ function AnnotatedTest(title, task, feedback, fn) {
   this.type = 'test';
   this.task = task;
   this.feedback = feedback;
+  this.annotated = true;
 }
 
 /**

@@ -35,7 +35,7 @@ function clean(test) {
   };
   if (test.err != null) {
     result.err = errorJSON(test.err);
-    if (result.feedback == null) {
+    if (test.annotated && result.feedback == null) {
       result.feedback = result.err.message;
     }
   }
