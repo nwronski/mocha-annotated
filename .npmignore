@@ -9,3 +9,4 @@ commitlint.config.js
 .nvmrc
 src/
 .babelrc
+.huskyrc
