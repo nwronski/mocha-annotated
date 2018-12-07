@@ -148,3 +148,31 @@ At the end of your test output, you will see the feedback for any failing test(s
    }
 ]
 ```
+
+### Alternative Forms
+
+While `it.annotated(title, taskNumber, feedback, fn)` works when a task number is known and the feedback is predetermined, there are alternative forms to support other situations:
+
+* Use `it.annotated(title, feedback, fn)` when there is no task number associated with the test.
+* Use `it.annotated(title, taskNumber, fn)` when there is no feedback associated with the test, **or** when feedback is included in a test assertion.
+* Use `it.annotated(title, fn)` when there is no task number associated with the test and feedback is undefined or dynamic (as above).
+
+Following is an example of the dynamic feedback situation:
+
+```javascript
+import { expect } from 'chai';
+
+describe('Beep#add', () => {
+  it.annotated(
+    // Test title
+    '2 + 2 = 4',
+    // The test function containing the expectations/assertions
+    () => {
+      const result = Beep.add(2, 2);
+      expect(result).to.equal(4, `We expected 2 + 2 = 4, but instead it is ${result}.`);
+    },
+  );
+});
+```
+
+Annotated tests without predetermined feedback will also use messages from errors thrown within the test.
