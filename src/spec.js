@@ -62,7 +62,7 @@ function AnnotatedSpec(runner) {
     );
   });
 
-  runner.on('end', () => {
+  runner.once('end', () => {
     let fmt;
 
     // passes
