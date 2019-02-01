@@ -34,7 +34,7 @@ function AnnotatedJSONReporter(runner) {
     this.pending.push(test);
   });
 
-  runner.on('end', () => {
+  runner.once('end', () => {
     const obj = {
       stats: this.stats,
       tests: this.tests.map(clean),

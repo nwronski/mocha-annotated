@@ -28,7 +28,7 @@ function AnnotatedList(runner) {
     console.log(JSON.stringify([ 'fail', result ]));
   });
 
-  runner.on('end', () => {
+  runner.once('end', () => {
     process.stdout.write(JSON.stringify([ 'end', this.stats ]));
   });
 }
