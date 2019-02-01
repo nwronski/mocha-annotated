@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/nwronski/mocha-annotated/compare/v0.5.2...v0.5.3) (2019-02-01)
+
+
+### Bug Fixes
+
+* report test results only once in mocha 5 ([#7](https://github.com/nwronski/mocha-annotated/issues/7)) ([cfca23b](https://github.com/nwronski/mocha-annotated/commit/cfca23b))
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/nwronski/mocha-annotated/compare/v0.5.1...v0.5.2) (2018-12-07)
 

@@ -1,6 +1,6 @@
 {
   "name": "mocha-annotated",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Mocha but with tasks and feedback built into it!",
   "main": "dist/index.js",
   "contributors": [
