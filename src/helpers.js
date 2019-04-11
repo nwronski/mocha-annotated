@@ -1,7 +1,35 @@
 /**
- * Transform `error` into a JSON object.
+ * Replaces any circular references inside `obj` with '[object Object]'
  *
- * @api private
+ * @private
+ * @param {Object} obj
+ * @return {Object}
+ */
+function cleanCycles(obj) {
+  const cache = [];
+  const str = JSON.stringify(
+    obj,
+    (key, value) => {
+      if (typeof value === 'object' && value !== null) {
+        if (cache.indexOf(value) !== -1) {
+          // Instead of going in a circle, we'll set it to null
+          return null;
+        }
+        cache.push(value);
+      }
+
+      return value;
+    },
+  );
+  return JSON.parse(str);
+}
+
+exports.cleanCycles = cleanCycles;
+
+/**
+ * Transform an Error object into a JSON object.
+ *
+ * @private
  * @param {Error} err
  * @return {Object}
  */
@@ -34,7 +62,7 @@ function clean(test) {
     currentRetry: test.currentRetry(),
   };
   if (test.err != null) {
-    result.err = errorJSON(test.err);
+    result.err = cleanCycles(test.err instanceof Error ? errorJSON(test.err) : test.err);
     if (test.annotated && result.feedback == null) {
       result.feedback = result.err.message;
     }
