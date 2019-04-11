@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.4"></a>
+## [0.5.4](https://github.com/nwronski/mocha-annotated/compare/v0.5.3...v0.5.4) (2019-04-11)
+
+
+### Bug Fixes
+
+* circular reference error when serializing error object ([#8](https://github.com/nwronski/mocha-annotated/issues/8)) ([f2048b9](https://github.com/nwronski/mocha-annotated/commit/f2048b9))
+
+
+
 <a name="0.5.3"></a>
 ## [0.5.3](https://github.com/nwronski/mocha-annotated/compare/v0.5.2...v0.5.3) (2019-02-01)
 
